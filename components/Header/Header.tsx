@@ -15,6 +15,14 @@ function Header() {
           </li>
           <li>
             <Link
+              href="/notes"
+              className="transition-colors hover:text-foreground"
+            >
+              Notes
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/about"
               className="transition-colors hover:text-foreground"
             >
