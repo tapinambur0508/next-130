@@ -1,7 +1,8 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
+import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
 
 import { getNote } from "@/services/note";
 
@@ -11,6 +12,7 @@ function NoteDetailsClient() {
   const [isEdit, setIsEdit] = useState(false);
 
   const { noteId } = useParams<{ noteId: string }>();
+  const router = useRouter();
 
   const noteQ = useQuery({
     queryKey: ["note", noteId],
@@ -38,6 +40,8 @@ function NoteDetailsClient() {
         {isEdit === true && (
           <button onClick={() => setIsEdit(false)}>Close</button>
         )}
+        <button onClick={() => router.back()}>Back</button>
+        {/* <Link href="/notes">Back</Link> */}
 
         {isEdit ? (
           <form>
