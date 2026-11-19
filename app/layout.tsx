@@ -22,7 +22,12 @@ export const metadata: Metadata = {
   description: "Your notes keeper",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}
+
+export default function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html
       lang="en"
@@ -31,7 +36,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <TanstackProvider>
           <Header />
-          <div className="flex flex-1 flex-col">{children}</div>
+          <div className="flex flex-1 flex-col">
+            {children}
+            {modal}
+          </div>
           <Footer />
         </TanstackProvider>
       </body>

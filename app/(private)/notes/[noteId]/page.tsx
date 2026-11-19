@@ -23,8 +23,8 @@ async function NotePage({ params }: NotePageProps) {
   });
 
   return (
-    <div>
-      <h1>Note {noteId}</h1>
+    <div className="mx-auto w-full max-w-5xl px-6 py-10">
+      <h1 className="text-sm font-medium text-neutral-500">Note {noteId}</h1>
 
       <HydrationBoundary state={dehydrate(queryClient)}>
         <NoteDetailsClient />

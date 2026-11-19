@@ -1,10 +1,6 @@
-import { getCategories } from "@/services/category";
-
 import Link from "next/link";
 
 async function Header() {
-  const categories = await getCategories();
-
   return (
     <header className="border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
       <nav className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -24,15 +20,6 @@ async function Header() {
             >
               Notes
             </Link>
-            <ul>
-              {categories.map((category) => (
-                <li key={category.id}>
-                  <Link href={`/notes/filters/${category.id}`}>
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </li>
           <li>
             <Link
